@@ -1,4 +1,4 @@
-# Vipps Signup API version 1
+# Vipps Signup & Login API version 1
 
 This repo contains developer resources for the Vipps Signup API. 
 
