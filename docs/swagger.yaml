@@ -1,0 +1,92 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Vipps signup API
+host: api.vippsbedrift.no
+basePath: /
+schemes:
+  - https
+tags:
+  - name: Signup
+    description: Used to manage a signup
+paths:
+  /v1/partial/signup:
+    post:
+      tags:
+        - Signup
+      summary: Create a signup
+      description: >-
+        Used to initiate the signup in Vipps on behalf of a merchant for Vipps
+        ecommerce
+      operationId: partialSignup
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=UTF-8
+      parameters:
+        - in: body
+          name: partialSignup
+          description: partialSignup
+          required: true
+          schema:
+            $ref: '#/definitions/partialSignup'
+      responses:
+        '201':
+          description: Response for partial signup
+          schema:
+            $ref: '#/definitions/partialSignupResponse'
+        '400':
+          description: Bad request (Missing a required parameter or Bad request formats)
+        '404':
+          description: Resource Not Found
+        '500':
+          description: Something went wrong from Vipps Server side
+definitions:
+  partialSignup:
+    type: object
+    required:
+      - "orgnumber"
+      - "partnerId"
+      - "subscriptionPackageId"
+      - "signupCallbackUrl"
+      - "form-type"
+    properties:
+      orgnumber:
+        type: string
+        description: Norwegian Organization Number
+        example: "996348954"
+      partnerId:
+        type: string
+        description: PartnerID given by Vipps
+        example: "99880088"
+      subscriptionPackageId:
+        type: string
+        description: Price package to be used for merchant
+        example: "826"
+      signupCallbackUrl:
+        type: string
+        example: "https://test.vipps.no/callback"
+      signupCallbackToken:
+        type: string
+        example: "c00be7de-64c4-11e8-adc0-fa7ae01bbebc"
+      merchantWebsiteUrl:
+        type: string
+        description: Merchant website
+        example: "https://www.vipps.no/"
+      form-type:
+        type: string
+        example: "vippspanett"
+  partialSignupResponse:
+    type: object
+    required:
+      - "signup-id"
+      - "vippsURL"
+    properties:
+      signup-id:
+        type: string
+        description: Unique ID per signup request
+        example: "81b83246-5c19-7b94-875b-ea6d1114f099"
+      vippsURL:
+        type: string
+        description: Redirect URL to complete the sign-up
+        example: "https://vippsbedrift.no/signup/vippspanett/?r=81b83246-5c19-7b94-875b-ea6d1114f099"
