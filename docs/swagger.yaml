@@ -8,7 +8,7 @@ schemes:
   - https
 tags:
   - name: Signup
-    description: Used to manage a signup
+    description: Used to manage a signup, is used by merchants.
 paths:
   /v1/partial/signup:
     post:
