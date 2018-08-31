@@ -4,7 +4,7 @@
     "version": "1.0",
     "title": "Vipps signup API"
   },
-  "host": "api-staging.vippsbedrift.no",
+  "host": "api.vippsbedrift.no",
   "basePath": "/",
   "schemes": [
     "https"

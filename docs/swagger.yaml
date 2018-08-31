@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: '1.0'
   title: Vipps signup API
-host: api-staging.vippsbedrift.no
+host: api.vippsbedrift.no
 basePath: /
 schemes:
   - https
@@ -217,4 +217,3 @@ definitions:
         type: string
         format: guid
         description: clientSecret
-    
