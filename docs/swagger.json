@@ -172,11 +172,11 @@
     "callbackTriggerRequest": {
       "type": "object",
       "required": [
-        "callbackUrl",
+        "signupCallbackUrl",
         "vippsURL"
       ],
       "properties": {
-        "callbackUrl": {
+        "signupCallbackUrl": {
           "type": "string",
           "description": "Url",
           "example": "https://partner.com/callbackreceiver"
@@ -233,14 +233,17 @@
     "subscriptionKeys": {
       "type": "array",
       "items": {
-        "allOf": [
+        "oneOf": [
           {
-            "$ref": "#/definitions/subscriptionKeyProduct"
+            "$ref": "#/definitions/subscriptionKeyAccess"
+          },
+          {
+            "$ref": "#/definitions/subscriptionKeyEcommerce"
           }
         ]
       }
     },
-    "subscriptionKeyProduct": {
+    "subscriptionKeyAccess": {
       "type": "object",
       "required": [
         "product",
@@ -250,6 +253,32 @@
       "properties": {
         "product": {
           "example": "Access",
+          "type": "string",
+          "format": "string",
+          "description": "AccessProduct"
+        },
+        "ocp-apim-subscription-key": {
+          "type": "string",
+          "format": "guid",
+          "description": "Ocp-apim-subscription-key"
+        },
+        "secondary-ocp-apim-subscription-key": {
+          "type": "string",
+          "format": "guid",
+          "description": "Secondary-ocp-apim-subscription-key"
+        }
+      }
+    },
+    "subscriptionKeyEcommerce": {
+      "type": "object",
+      "required": [
+        "product",
+        "ocp-apim-subscription-key",
+        "secondary-ocp-apim-subscription-key"
+      ],
+      "properties": {
+        "product": {
+          "example": "Ecommerce",
           "type": "string",
           "format": "string",
           "description": "AccessProduct"
