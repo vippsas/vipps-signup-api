@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: '1.0'
   title: Vipps signup API
-host: api.vippsbedrift.no
+host: api-staging.vippsbedrift.no
 basePath: /
 schemes:
   - https

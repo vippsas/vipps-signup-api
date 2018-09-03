@@ -2,7 +2,7 @@
 
 This repo contains developer resources for the Vipps Signup API.
 
-**IMPORTANT:** This is a work in progress! Expect sudden, breaking changes :boom: The official, stable developer resources for Vipps is still https://vipps.no/developer
+**IMPORTANT:** This is a work in progress. The PDFs are still the official documentation, but we are working on making the same informationa vailable in more developer friendly formats. See also: https://vipps.no/developer
 
 If you want to contribute here on GitHub: Great! See [CONTRIBUTING.md](CONTRIBUTING.md). No issue or pull request is too small 👍 
 
