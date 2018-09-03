@@ -233,15 +233,31 @@
     "subscriptionKeys": {
       "type": "array",
       "items": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/subscriptionKeyAccess"
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string"
           },
-          {
-            "$ref": "#/definitions/subscriptionKeyEcommerce"
+          "ocp-apim-subscription-key": {
+            "type": "string"
+          },
+          "secondary-ocp-apim-subscription-key": {
+            "type": "string"
           }
-        ]
-      }
+        }
+      },
+      "example": [
+        {
+          "product": "Access",
+          "ocp-apim-subscription-key": "string",
+          "secondary-ocp-apim-subscription-key": "string"
+        },
+        {
+          "product": "Ecommerce",
+          "ocp-apim-subscription-key": "string",
+          "secondary-ocp-apim-subscription-key": "string"
+        }
+      ]
     },
     "subscriptionKeyAccess": {
       "type": "object",

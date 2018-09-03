@@ -171,9 +171,21 @@ definitions:
   subscriptionKeys:
    type: array
    items:
-    anyOf:
-      - $ref: '#/definitions/subscriptionKeyAccess'
-      - $ref: '#/definitions/subscriptionKeyEcommerce'
+        type: object
+        properties:
+          product:
+            type: string
+          ocp-apim-subscription-key:
+            type: string
+          secondary-ocp-apim-subscription-key:
+            type: string
+   example:
+        - product: Access
+          ocp-apim-subscription-key: string
+          secondary-ocp-apim-subscription-key: string
+        - product: Ecommerce
+          ocp-apim-subscription-key: string
+          secondary-ocp-apim-subscription-key: string
   subscriptionKeyAccess:
    type: object
    required:
