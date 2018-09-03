@@ -40,12 +40,12 @@ paths:
         '404':
           description: Resource Not Found
         '500':
-          description: Something went wrong from Vipps Server side
+          description: Internal Server Error
 
   /v1/test/callbackTrigger:
     post:
       tags:
-        - Signup Tet
+        - Signup Test
       summary: Test a signup
       description: >-
         Used to initiate the signup in Vipps on behalf of a merchant for Vipps
@@ -72,7 +72,7 @@ paths:
         '404':
           description: Resource Not Found
         '500':
-          description: Something went wrong from Vipps Server side
+          description: Internal Server Error 
 definitions:
   partialSignup:
     type: object
