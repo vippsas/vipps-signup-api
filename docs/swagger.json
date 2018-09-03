@@ -55,7 +55,7 @@
             "description": "Resource Not Found"
           },
           "500": {
-            "description": "Something went wrong from Vipps Server side"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -63,7 +63,7 @@
     "/v1/test/callbackTrigger": {
       "post": {
         "tags": [
-          "Signup Tet"
+          "Signup Test"
         ],
         "summary": "Test a signup",
         "description": "Used to initiate the signup in Vipps on behalf of a merchant for Vipps ecommerce",
@@ -99,7 +99,7 @@
             "description": "Resource Not Found"
           },
           "500": {
-            "description": "Something went wrong from Vipps Server side"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -210,6 +210,21 @@
           "description": "createdTime",
           "example": "00:00:00"
         },
+        "merchantSerialNumber": {
+          "type": "string",
+          "format": "string",
+          "description": "merchantSerialNumber"
+        },
+        "client_Id": {
+          "type": "string",
+          "format": "guid",
+          "description": "clientId"
+        },
+        "client_Secret": {
+          "type": "string",
+          "format": "guid",
+          "description": "clientSecret"
+        },
         "subscriptionKeys": {
           "$ref": "#/definitions/subscriptionKeys"
         }
@@ -220,15 +235,12 @@
       "items": {
         "allOf": [
           {
-            "$ref": "#/definitions/subscriptionKeysAccess"
-          },
-          {
-            "$ref": "#/definitions/subscriptionKeysEcommerce"
+            "$ref": "#/definitions/subscriptionKeyProduct"
           }
         ]
       }
     },
-    "subscriptionKeysAccess": {
+    "subscriptionKeyProduct": {
       "type": "object",
       "required": [
         "product",
@@ -251,50 +263,6 @@
           "type": "string",
           "format": "guid",
           "description": "Secondary-ocp-apim-subscription-key"
-        }
-      }
-    },
-    "subscriptionKeysEcommerce": {
-      "type": "object",
-      "required": [
-        "product",
-        "ocp-apim-subscription-key",
-        "secondary-ocp-apim-subscription-key",
-        "merchantSerialNumber",
-        "clientId",
-        "clientSecret"
-      ],
-      "properties": {
-        "product": {
-          "example": "ecommerece",
-          "type": "string",
-          "format": "string",
-          "description": "AccessProduct"
-        },
-        "ocp-apim-subscription-key": {
-          "type": "string",
-          "format": "guid",
-          "description": "Ocp-apim-subscription-key"
-        },
-        "secondary-ocp-apim-subscription-key": {
-          "type": "string",
-          "format": "guid",
-          "description": "Secondary-ocp-apim-subscription-key"
-        },
-        "merchantSerialNumber": {
-          "type": "string",
-          "format": "string",
-          "description": "merchantSerialNumber"
-        },
-        "clientId": {
-          "type": "string",
-          "format": "guid",
-          "description": "clientId"
-        },
-        "clientSecret": {
-          "type": "string",
-          "format": "guid",
-          "description": "clientSecret"
         }
       }
     }
