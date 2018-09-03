@@ -236,7 +236,7 @@
         "type": "object",
         "properties": {
           "product": {
-            "type": "integer"
+            "type": "string"
           },
           "ocp-apim-subscription-key": {
             "type": "string"

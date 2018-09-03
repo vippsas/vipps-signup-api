@@ -174,7 +174,7 @@ definitions:
         type: object
         properties:
           product:
-            type: integer
+            type: string
           ocp-apim-subscription-key:
             type: string
           secondary-ocp-apim-subscription-key:
