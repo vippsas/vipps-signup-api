@@ -2,21 +2,6 @@ swagger: '2.0'
 info:
   version: '1.0'
   title: Vipps signup API
-  description:  >+
-    # Authentication
-
-    Every API call is authenticated and authorized based on the application
-    Authorization token (JWT Bearer token) and APIM subscription key
-    (Ocp-Apim-Subscription-Key). In addition, APP Id need to be provided in
-    request header in order to authenticate the application the merchant has
-    registered. Following headers are required to be there in every API request
-    to successfully authenticate every API call.
-
-      | **Header Name** | **Header Value** | **Description** |
-      | :-------------------------- | :--------------------------- | :--------------------------------------------- |
-      | Authorization | Bearer 'jwt_access_token'' | type: Authorization token<br>Value: Access token is obtained by registering merchant backend application in Merchant Developer Portal. |
-      | Ocp-Apim-Subscription-Key | Base 64 encoded string | Subscription key for product.<br>This can be found in User Profile page on Merchant developer portal after merchant account is created |
-
 host: api.vippsbedrift.no
 basePath: /
 schemes:
