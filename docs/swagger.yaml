@@ -62,8 +62,8 @@ paths:
         - application/json;charset=UTF-8
       parameters:
         - in: body
-          name: partialSignup
-          description: partialSignup
+          name: callbackTrigger
+          description: callbackTrigger
           required: true
           schema:
             $ref: '#/definitions/callbackTriggerRequest'
