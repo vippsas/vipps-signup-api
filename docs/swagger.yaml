@@ -3,8 +3,6 @@ info:
   version: '1.0'
   title: Vipps signup API
   description:  >+
-    # Authentication
-
       Vipps Signup API enables a partner to initiate Vipps onboarding process on behalf of a merchant. The merchant needs to complete Vipps signup form to sign the merchant agreement with Vipps. After a successful signup Vipps will send the API keys to the defined callback endpoint. In order to complete the integration there is a need to:
 
       1. Initiate the Signup to the Initiate endpoint
@@ -82,7 +80,7 @@ paths:
     post:
       tags:
         - Signup Test
-      summary: Test a signup
+      summary: Sent Callback
       description: >-
         Used to initiate the signup in Vipps on behalf of a merchant for Vipps
         ecommerce

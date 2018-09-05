@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0",
     "title": "Vipps signup API",
-    "description": "# Authentication\n\n  Vipps Signup API enables a partner to initiate Vipps onboarding process on behalf of a merchant. The merchant needs to complete Vipps signup form to sign the merchant agreement with Vipps. After a successful signup Vipps will send the API keys to the defined callback endpoint. In order to complete the integration there is a need to:\n\n  1. Initiate the Signup to the Initiate endpoint\n\n  2. Accept the callback sent to the callback endpoint\n\n"
+    "description": "Vipps Signup API enables a partner to initiate Vipps onboarding process on behalf of a merchant. The merchant needs to complete Vipps signup form to sign the merchant agreement with Vipps. After a successful signup Vipps will send the API keys to the defined callback endpoint. In order to complete the integration there is a need to:\n1. Initiate the Signup to the Initiate endpoint\n2. Accept the callback sent to the callback endpoint\n\n"
   },
   "host": "api.vippsbedrift.no",
   "basePath": "/",
