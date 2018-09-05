@@ -97,8 +97,8 @@ paths:
           type: string
           format: guid
         - in: body
-          name: partialSignup
-          description: partialSignup
+          name: callback
+          description: callback
           required: true
           schema:
             $ref: '#/definitions/callbackTriggerResponse'
