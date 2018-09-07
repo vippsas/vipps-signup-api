@@ -1,11 +1,17 @@
 # Vipps Signup API
 
-This repo contains developer resources for the Vipps Signup API.
+This repository contains developer resources for the Vipps Signup API.
+For more information about this product, please see
+[Vipps på Nett](https://www.vipps.no/bedrift/vipps-pa-nett).
 
-**IMPORTANT:** This is a work in progress. The PDFs are still the official documentation, but we are working on making the same informationa vailable in more developer friendly formats. See also: https://vipps.no/developer
+**IMPORTANT:** This is a work in progress.
 
-If you want to contribute here on GitHub: Great! See [CONTRIBUTING.md](CONTRIBUTING.md). No issue or pull request is too small 👍 
+See the Vipps Developers repository for
+a "getting started" guide,
+information about product activation,
+contact information,
+contribution guidelines,
+etc:
+https://github.com/vippsas/vipps-developers  
 
-See the main GitHub page for Vipps contact information, etc: https://github.com/vippsas  
-
-You can peruse the api-docs at https://vippsas.github.io/vipps-signup-api/
+You can peruse the API docs at https://vippsas.github.io/vipps-signup-api/
