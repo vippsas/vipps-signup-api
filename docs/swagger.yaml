@@ -2,13 +2,19 @@ swagger: '2.0'
 info:
   version: '1.0'
   title: Vipps signup API
-host: api-staging.vippsbedrift.no
+  description:  >+
+      Vipps Signup API enables a partner to initiate Vipps onboarding process on behalf of a merchant. The merchant needs to complete Vipps signup form to sign the merchant agreement with Vipps. After a successful signup Vipps will send the API keys to the defined callback endpoint. In order to complete the integration there is a need to:
+
+      1. Initiate the Signup to the Initiate endpoint
+
+      2. Accept the callback sent to the callback endpoint
+
+host: api.vippsbedrift.no
 basePath: /
 schemes:
   - https
 tags:
   - name: Signup
-    description: Used to manage a signup
 paths:
   /v1/partial/signup:
     post:
@@ -40,12 +46,11 @@ paths:
         '404':
           description: Resource Not Found
         '500':
-          description: Something went wrong from Vipps Server side
-
+          description: Internal Server Error
   /v1/test/callbackTrigger:
     post:
       tags:
-        - Signup Tet
+        - Signup Test
       summary: Test a signup
       description: >-
         Used to initiate the signup in Vipps on behalf of a merchant for Vipps
@@ -57,22 +62,59 @@ paths:
         - application/json;charset=UTF-8
       parameters:
         - in: body
-          name: partialSignup
-          description: partialSignup
+          name: callbackTrigger
+          description: callbackTrigger
           required: true
           schema:
             $ref: '#/definitions/callbackTriggerRequest'
       responses:
-        '201':
-          description: Response for partial signup
-          schema:
-            $ref: '#/definitions/callbackTriggerResponse'
+        '200':
+          description: Response for callBackTrigger
         '400':
           description: Bad request (Missing a required parameter or Bad request formats)
         '404':
           description: Resource Not Found
         '500':
-          description: Something went wrong from Vipps Server side
+          description: Internal Server Error
+  /signupcallbackURL:
+    post:
+      tags:
+        - Signup Test
+      summary: Sent Callback
+      description: >-
+        Used to initiate the signup in Vipps on behalf of a merchant for Vipps
+        ecommerce
+      operationId: callback
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=UTF-8
+      parameters:
+        - in: header
+          name: Authorization
+          description: SignupCallbackToken from partial signup request
+          required: true
+          type: string
+          format: guid
+        - in: body
+          name: callback
+          description: callback
+          required: true
+          schema:
+            $ref: '#/definitions/callbackTriggerResponse'
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad Request"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error"
+        503:
+          description: "Service unavailable"
+        504:
+          description: "Gateway Timeout"
 definitions:
   partialSignup:
     type: object
@@ -125,13 +167,16 @@ definitions:
   callbackTriggerRequest:
     type: object
     required:
-      - "callbackUrl"
-      - "vippsURL"
+      - "signupCallbackUrl"
     properties:
-      callbackUrl:
+      signupCallbackUrl:
         type: string
         description: Url
         example: "https://partner.com/callbackreceiver"
+      signupCallbackToken:
+        type: string
+        description: Guid
+        example: "c00be7de-64c4-11e8-adc0-fa7ae01bbebc"
   callbackTriggerResponse:
     type: object
     required:
@@ -154,15 +199,39 @@ definitions:
         type: string
         description: createdTime
         example: "00:00:00"
+      merchantSerialNumber:
+        type: string
+        format: string
+        description: merchantSerialNumber
+      client_Id:
+        type: string
+        format: guid
+        description: clientId
+      client_Secret:
+        type: string
+        format: guid
+        description: clientSecret
       subscriptionKeys:
         $ref: '#/definitions/subscriptionKeys'
   subscriptionKeys:
    type: array
    items:
-    allOf:
-      - $ref: '#/definitions/subscriptionKeysAccess'
-      - $ref: '#/definitions/subscriptionKeysEcommerce'
-  subscriptionKeysAccess:
+        type: object
+        properties:
+          product:
+            type: string
+          ocp-apim-subscription-key:
+            type: string
+          secondary-ocp-apim-subscription-key:
+            type: string
+   example:
+        - product: Access
+          ocp-apim-subscription-key: string
+          secondary-ocp-apim-subscription-key: string
+        - product: Ecommerce
+          ocp-apim-subscription-key: string
+          secondary-ocp-apim-subscription-key: string
+  subscriptionKeyAccess:
    type: object
    required:
       - product
@@ -182,18 +251,15 @@ definitions:
         type: string
         format: guid
         description: Secondary-ocp-apim-subscription-key
-  subscriptionKeysEcommerce:
+  subscriptionKeyEcommerce:
    type: object
    required:
       - product
       - ocp-apim-subscription-key
       - secondary-ocp-apim-subscription-key
-      - merchantSerialNumber
-      - clientId
-      - clientSecret
    properties:
       product:
-        example: ecommerece
+        example: Ecommerce
         type: string
         format: string
         description: AccessProduct
@@ -205,15 +271,19 @@ definitions:
         type: string
         format: guid
         description: Secondary-ocp-apim-subscription-key
-      merchantSerialNumber:
+  AuthorizationTokenResponse:
+    type: object
+    properties:
+      token_type:
         type: string
-        format: string
-        description: merchantSerialNumber
-      clientId:
+      access_token:
         type: string
-        format: guid
-        description: clientId
-      clientSecret:
+      ext_expires_in:
+        type: integer
+      not_before:
+        type: integer
+      expires_in:
+        type: integer
+        format: int32
+      resource:
         type: string
-        format: guid
-        description: clientSecret
