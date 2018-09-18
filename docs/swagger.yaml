@@ -227,16 +227,13 @@ definitions:
    example:
         - product: Access
           ocp-apim-subscription-key: string
-          secondary-ocp-apim-subscription-key: string
         - product: Ecommerce
           ocp-apim-subscription-key: string
-          secondary-ocp-apim-subscription-key: string
   subscriptionKeyAccess:
    type: object
    required:
       - product
       - ocp-apim-subscription-key
-      - secondary-ocp-apim-subscription-key
    properties:
       product:
         example: Access
@@ -247,16 +244,11 @@ definitions:
         type: string
         format: guid
         description: Ocp-apim-subscription-key
-      secondary-ocp-apim-subscription-key:
-        type: string
-        format: guid
-        description: Secondary-ocp-apim-subscription-key
   subscriptionKeyEcommerce:
    type: object
    required:
       - product
       - ocp-apim-subscription-key
-      - secondary-ocp-apim-subscription-key
    properties:
       product:
         example: Ecommerce
@@ -267,10 +259,6 @@ definitions:
         type: string
         format: guid
         description: Ocp-apim-subscription-key
-      secondary-ocp-apim-subscription-key:
-        type: string
-        format: guid
-        description: Secondary-ocp-apim-subscription-key
   AuthorizationTokenResponse:
     type: object
     properties:

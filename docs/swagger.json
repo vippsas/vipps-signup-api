@@ -77,8 +77,8 @@
         "parameters": [
           {
             "in": "body",
-            "name": "partialSignup",
-            "description": "partialSignup",
+            "name": "callbackTrigger",
+            "description": "callbackTrigger",
             "required": true,
             "schema": {
               "$ref": "#/definitions/callbackTriggerRequest"
@@ -126,8 +126,8 @@
           },
           {
             "in": "body",
-            "name": "partialSignup",
-            "description": "partialSignup",
+            "name": "callback",
+            "description": "callback",
             "required": true,
             "schema": {
               "$ref": "#/definitions/callbackTriggerResponse"
@@ -305,13 +305,11 @@
       "example": [
         {
           "product": "Access",
-          "ocp-apim-subscription-key": "string",
-          "secondary-ocp-apim-subscription-key": "string"
+          "ocp-apim-subscription-key": "string"
         },
         {
           "product": "Ecommerce",
-          "ocp-apim-subscription-key": "string",
-          "secondary-ocp-apim-subscription-key": "string"
+          "ocp-apim-subscription-key": "string"
         }
       ]
     },
@@ -319,8 +317,7 @@
       "type": "object",
       "required": [
         "product",
-        "ocp-apim-subscription-key",
-        "secondary-ocp-apim-subscription-key"
+        "ocp-apim-subscription-key"
       ],
       "properties": {
         "product": {
@@ -333,11 +330,6 @@
           "type": "string",
           "format": "guid",
           "description": "Ocp-apim-subscription-key"
-        },
-        "secondary-ocp-apim-subscription-key": {
-          "type": "string",
-          "format": "guid",
-          "description": "Secondary-ocp-apim-subscription-key"
         }
       }
     },
@@ -345,8 +337,7 @@
       "type": "object",
       "required": [
         "product",
-        "ocp-apim-subscription-key",
-        "secondary-ocp-apim-subscription-key"
+        "ocp-apim-subscription-key"
       ],
       "properties": {
         "product": {
@@ -359,11 +350,6 @@
           "type": "string",
           "format": "guid",
           "description": "Ocp-apim-subscription-key"
-        },
-        "secondary-ocp-apim-subscription-key": {
-          "type": "string",
-          "format": "guid",
-          "description": "Secondary-ocp-apim-subscription-key"
         }
       }
     },
