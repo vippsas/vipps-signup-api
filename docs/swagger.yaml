@@ -9,6 +9,8 @@ info:
 
       2. Accept the callback sent to the callback endpoint
 
+      3. Return a 202 response to acknowledge that the callback has been accepted.
+
 host: api.vippsbedrift.no
 basePath: /
 schemes:
@@ -103,7 +105,7 @@ paths:
           schema:
             $ref: '#/definitions/callbackTriggerResponse'
       responses:
-        200:
+        202:
           description: "OK"
         400:
           description: "Bad Request"
