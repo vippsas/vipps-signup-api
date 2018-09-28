@@ -106,7 +106,7 @@ paths:
             $ref: '#/definitions/callbackTriggerResponse'
       responses:
         202:
-          description: "OK"
+          description: "Accepted"
         400:
           description: "Bad Request"
         401:
