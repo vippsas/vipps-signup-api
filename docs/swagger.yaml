@@ -205,14 +205,17 @@ definitions:
         type: string
         format: string
         description: merchantSerialNumber
+        example: "123456"
       client_Id:
         type: string
         format: guid
         description: clientId
+        example: "51358942-08c8-4d50-99f4-a9aa970b5f5b"
       client_Secret:
         type: string
         format: guid
         description: clientSecret
+        example: "verysecret123"
       subscriptionKeys:
         $ref: '#/definitions/subscriptionKeys'
   subscriptionKeys:
@@ -228,9 +231,9 @@ definitions:
             type: string
    example:
         - product: Access
-          ocp-apim-subscription-key: string
+          ocp-apim-subscription-key: "de897dbb-0cd3-4445-b003-ac8214ac4638"
         - product: Ecommerce
-          ocp-apim-subscription-key: string
+          ocp-apim-subscription-key: "1c4c46ed-63c0-4390-be7f-adca4b3bf95b"
   subscriptionKeyAccess:
    type: object
    required:
