@@ -105,8 +105,8 @@ paths:
         "504":
           description: Gateway Timeout
 servers:
-  - url: https://api.vippsbedrift.no/
-  - url: https://api-staging.vippsbedrift.no
+  - url: https://api.vippsbedrift.no
+  - url: https://api-test.vippsbedrift.no
 components:
   schemas:
     partialSignup:

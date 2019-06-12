@@ -144,10 +144,10 @@
   },
   "servers": [
     {
-      "url": "https://api.vippsbedrift.no/"
+      "url": "https://api.vippsbedrift.no"
     },
     {
-      "url": "https://api-staging.vippsbedrift.no"
+      "url": "https://api-test.vippsbedrift.no"
     }
   ],
   "components": {
