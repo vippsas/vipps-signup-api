@@ -1,18 +1,11 @@
 openapi: 3.0.0
 info:
-  version: "1.0"
+  version: '1.0'
   title: Vipps signup API
-  description: >+
-    Vipps Signup API enables a partner to initiate Vipps onboarding process on
-    behalf of a merchant. The merchant needs to complete Vipps signup form to
-    sign the merchant agreement with Vipps. After a successful signup Vipps will
-    send the API keys to the defined callback endpoint. In order to complete the
-    integration there is a need to:
-
+  description: |+
+    Vipps Signup API enables a partner to initiate Vipps onboarding process on behalf of a merchant. The merchant needs to complete Vipps signup form to sign the merchant agreement with Vipps. After the signup form has been processed, Vipps will send the API keys to the defined callback endpoint. In order to complete the integration there is a need to:
     1. Initiate the Signup to the Initiate endpoint
-
     2. Accept the callback sent to the callback endpoint
-
     3. Return a 202 response to acknowledge that the callback has been accepted.
 
 tags:
@@ -23,51 +16,50 @@ paths:
       tags:
         - Signup
       summary: Create a signup
-      description: Used to initiate the signup in Vipps on behalf of a merchant for Vipps
-        ecommerce
+      description: Used to initiate the signup in Vipps on behalf of a merchant for Vipps ecommerce. In the test environment a dummy value can be used as partnerId and subscriptionPackageId. For production values, contact Vipps.
       operationId: partialSignup
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/partialSignup"
+              $ref: '#/components/schemas/partialSignup'
         description: partialSignup
         required: true
       responses:
-        "201":
+        '201':
           description: Response for partial signup
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: "#/components/schemas/partialSignupResponse"
-        "400":
+                $ref: '#/components/schemas/partialSignupResponse'
+        '400':
           description: Bad request (Missing a required parameter or Bad request formats)
-        "404":
+        '404':
           description: Resource Not Found
-        "500":
+        '500':
           description: Internal Server Error
   /v1/test/callbackTrigger:
     post:
       tags:
         - Signup Test
       summary: Test a signup
-      description: Used to test the callback from Vipps. The callback is sent after the merchant has signed the agreement and the sale unit has been created.
+      description: Used to test the callback from Vipps. The callback is sent after the merchant has signed the agreement, the signup has been processed, and the sale unit has been created.
       operationId: callbackResponse
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/callbackTriggerRequest"
+              $ref: '#/components/schemas/callbackTriggerRequest'
         description: callbackTrigger
         required: true
       responses:
-        "200":
+        '200':
           description: Response for callBackTrigger
-        "400":
+        '400':
           description: Bad request (Missing a required parameter or Bad request formats)
-        "404":
+        '404':
           description: Resource Not Found
-        "500":
+        '500':
           description: Internal Server Error
   /signupcallbackURL:
     post:
@@ -88,25 +80,25 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/callbackTriggerResponse"
+              $ref: '#/components/schemas/callbackTriggerResponse'
         description: callback
         required: true
       responses:
-        "202":
+        '202':
           description: Accepted
-        "400":
+        '400':
           description: Bad Request
-        "401":
+        '401':
           description: Unauthorized
-        "500":
+        '500':
           description: Internal Server Error
-        "503":
+        '503':
           description: Service unavailable
-        "504":
+        '504':
           description: Gateway Timeout
 servers:
-  - url: https://api.vippsbedrift.no/
-  - url: https://api-staging.vippsbedrift.no
+  - url: 'https://api.vippsbedrift.no'
+  - url: 'https://api-test.vippsbedrift.no'
 components:
   schemas:
     partialSignup:
@@ -122,19 +114,19 @@ components:
         orgnumber:
           type: string
           description: Norwegian Organization Number
-          example: "996348954"
+          example: '996348954'
         partnerId:
           type: string
           description: PartnerID given by Vipps
-          example: "99880088"
+          example: '99880088'
         subscriptionPackageId:
           type: string
-          description: Price package to be used for merchant
-          example: "826"
+          description: Price package to be used for merchant given by Vipps
+          example: '826'
         signupCallbackUrl:
           type: string
           description: Url that the callback will be sent to
-          example: https://test.vipps.no/callback
+          example: 'https://test.vipps.no/callback'
         signupCallbackToken:
           type: string
           description: Token to authenticate the callback
@@ -142,7 +134,7 @@ components:
         merchantWebsiteUrl:
           type: string
           description: Merchant website
-          example: https://www.vipps.no/
+          example: 'https://www.vipps.no/'
         form-type:
           type: string
           description: The type of the form
@@ -160,7 +152,7 @@ components:
         vippsURL:
           type: string
           description: Redirect URL to complete the sign-up
-          example: https://vippsbedrift.no/signup/vippspanett/?r=81b83246-5c19-7b94-875b-ea6d1114f099
+          example: 'https://vippsbedrift.no/signup/vippspanett/?r=81b83246-5c19-7b94-875b-ea6d1114f099'
     callbackTriggerRequest:
       type: object
       required:
@@ -169,7 +161,7 @@ components:
         signupCallbackUrl:
           type: string
           description: Url
-          example: https://partner.com/callbackreceiver
+          example: 'https://partner.com/callbackreceiver'
         signupCallbackToken:
           type: string
           description: Guid
@@ -187,7 +179,7 @@ components:
         orgnumber:
           type: string
           description: Norwegian Organization Number
-          example: "692493206"
+          example: '692493206'
         merchant-name:
           type: string
           description: Merchant Name
@@ -195,12 +187,12 @@ components:
         createdTime:
           type: string
           description: createdTime
-          example: 00:00:00
+          example: '00:00:00'
         merchantSerialNumber:
           type: string
           format: string
           description: merchantSerialNumber
-          example: "123456"
+          example: '123456'
         client_Id:
           type: string
           format: guid
@@ -212,7 +204,7 @@ components:
           description: clientSecret
           example: verysecret123
         subscriptionKeys:
-          $ref: "#/components/schemas/subscriptionKeys"
+          $ref: '#/components/schemas/subscriptionKeys'
     subscriptionKeys:
       type: array
       items:
