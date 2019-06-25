@@ -4,7 +4,6 @@ This repository contains developer resources for the Vipps Partner Signup API.
 
 API Documentation: https://vippsas.github.io/vipps-signup-api/
 
-**IMPORTANT:** This is a work in progress.
 
 See the Vipps Developers repository for
 a "getting started" guide,
@@ -36,7 +35,7 @@ We want to create a connection between the ecommerce partner ("Partner") and the
 }
 ```
 ### Partner receives the signup link
-As response to partial signup initiation above the partner receives an signup id and a link to the signup which is forwarded to the merchant to complete the registration.
+As response to partial signup initiation above the partner receives a signup id and a link to the signup. The partner have to forward this link to the merchant to complete the registration.
 
 **Response**
 ```html
@@ -47,7 +46,7 @@ As response to partial signup initiation above the partner receives an signup id
 ```
 
 ### The signup form, KYC and signing process
-Merchant completes the form and if necessary answers additional questions as part of Vipps KYC process.  
+Merchant completes the form and the signup form is processed by Vipps. This usually takes 2-3 days, unless we need more information from the merchant. If necessary, the merchant answers additional questions as part of Vipps KYC process.
 
 ### The signup callback
 Once Vipps have completed the registration the signup callback is initiated to the partner signupCallback with the required API credentials for the merchant.
