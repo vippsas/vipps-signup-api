@@ -35,7 +35,7 @@ We want to create a connection between the ecommerce partner ("Partner") and the
 }
 ```
 ### Partner receives the signup link
-As response to partial signup initiation above the partner receives a signup id and a link to the signup. The partner have to forward this link to the merchant to complete the registration.
+As response to partial signup initiation above the partner receives a signup id and a link to the signup. The partner has to forward this link to the merchant to complete the registration.
 
 **Response**
 ```html
