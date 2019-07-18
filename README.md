@@ -20,7 +20,7 @@ The intention with Vipps Partner Signup API is to create signup forms for Vipps 
 ![Vips Signup via Partner](images/vipps_signup_via_partner.png)
 
 ### Partner initiates the signup
-We want to create a connection between the ecommerce partner ("Partner") and the merchant, as the partners are having a relationship to the merchant we aim to make it easy for the merchants to complete the commercial and technical setup for Vipps. The process is initated by the partner, calling Vipps API to create a prefilled signup form.
+We want to create a connection between the ecommerce partner ("Partner") and the merchant, as the partners have a relationship to the merchant we aim to make it easy for the merchants to complete the commercial and technical setup for Vipps. The process is initated by the partner, calling Vipps API to create a prefilled signup form.
 
 **Request**
 ```html
@@ -55,3 +55,18 @@ Once Vipps have completed the registration the signup callback is initiated to t
 See the Vipps Developers repository for a "getting started" guide,
 information about product activation, contact information,
 contribution guidelines, etc: https://github.com/vippsas/vipps-developers
+
+
+##FAQ
+
+###What is my partnerId?
+The partnerId is used to identify the partner. Ask your contact in Vipps to provide you with your partnerId.
+
+###What is my subscriptionPackageId?
+The subscriptionPackageId defines which price the merchant will have.Ask your contact in Vipps to provide you with the correct subscriptionPackageIds.
+
+###Will Vipps send the Signup link to the merchant?
+The partner has to forward the signup link to the merchant.
+
+###I sent the signup link to the merchant, but has not heard anything. When will I receive the callback?
+The callback is sent after the merchant has completed the signup and signed the agreement AND after Vipps has done KYC and completed the registration process.
