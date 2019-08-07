@@ -17,7 +17,7 @@
           "Signup"
         ],
         "summary": "Create a signup",
-        "description": "Used to initiate the signup in Vipps on behalf of a merchant for Vipps ecommerce. In the test environment a dummy value can be used as partnerId and subscriptionPackageId. For production values, contact Vipps.",
+        "description": "Initiate the signup in Vipps on behalf of a merchant for Vipps ecommerce. In the test environment it is recommended to use the provided example values for partnerId and subscriptionPackageId. For production values, contact Vipps.",
         "operationId": "partialSignup",
         "requestBody": {
           "content": {
@@ -53,45 +53,10 @@
         }
       }
     },
-    "/v1/test/callbackTrigger": {
-      "post": {
-        "tags": [
-          "Signup Test"
-        ],
-        "summary": "Test a signup",
-        "description": "Used to test the callback from Vipps. The callback is sent after the merchant has signed the agreement, the signup has been processed, and the sale unit has been created.",
-        "operationId": "callbackResponse",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/callbackTriggerRequest"
-              }
-            }
-          },
-          "description": "callbackTrigger",
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Response for callBackTrigger"
-          },
-          "400": {
-            "description": "Bad request (Missing a required parameter or Bad request formats)"
-          },
-          "404": {
-            "description": "Resource Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
     "/signupcallbackURL": {
       "post": {
         "tags": [
-          "Signup Test"
+          "Signup Callback"
         ],
         "summary": "Sent Callback",
         "description": "The callback that is sent after the merchant's sale unit has been created.",
@@ -170,13 +135,13 @@
           },
           "partnerId": {
             "type": "string",
-            "description": "PartnerID given by Vipps",
-            "example": "99880088"
+            "description": "PartnerID to identify the partner",
+            "example": "265536"
           },
           "subscriptionPackageId": {
             "type": "string",
-            "description": "Price package to be used for merchant given by Vipps",
-            "example": "826"
+            "description": "The price package that will be used for this merchant",
+            "example": "2"
           },
           "signupCallbackUrl": {
             "type": "string",
@@ -219,24 +184,6 @@
           }
         }
       },
-      "callbackTriggerRequest": {
-        "type": "object",
-        "required": [
-          "signupCallbackUrl"
-        ],
-        "properties": {
-          "signupCallbackUrl": {
-            "type": "string",
-            "description": "Url",
-            "example": "https://partner.com/callbackreceiver"
-          },
-          "signupCallbackToken": {
-            "type": "string",
-            "description": "Guid",
-            "example": "c00be7de-64c4-11e8-adc0-fa7ae01bbebc"
-          }
-        }
-      },
       "callbackTriggerResponse": {
         "type": "object",
         "required": [
@@ -252,7 +199,7 @@
           "orgnumber": {
             "type": "string",
             "description": "Norwegian Organization Number",
-            "example": "692493206"
+            "example": "996348954"
           },
           "merchant-name": {
             "type": "string",
@@ -310,70 +257,6 @@
             "ocp-apim-subscription-key": "1c4c46ed-63c0-4390-be7f-adca4b3bf95b"
           }
         ]
-      },
-      "subscriptionKeyAccess": {
-        "type": "object",
-        "required": [
-          "product",
-          "ocp-apim-subscription-key"
-        ],
-        "properties": {
-          "product": {
-            "example": "Access",
-            "type": "string",
-            "format": "string",
-            "description": "AccessProduct"
-          },
-          "ocp-apim-subscription-key": {
-            "type": "string",
-            "format": "guid",
-            "description": "Ocp-apim-subscription-key"
-          }
-        }
-      },
-      "subscriptionKeyEcommerce": {
-        "type": "object",
-        "required": [
-          "product",
-          "ocp-apim-subscription-key"
-        ],
-        "properties": {
-          "product": {
-            "example": "Ecommerce",
-            "type": "string",
-            "format": "string",
-            "description": "AccessProduct"
-          },
-          "ocp-apim-subscription-key": {
-            "type": "string",
-            "format": "guid",
-            "description": "Ocp-apim-subscription-key"
-          }
-        }
-      },
-      "AuthorizationTokenResponse": {
-        "type": "object",
-        "properties": {
-          "token_type": {
-            "type": "string"
-          },
-          "access_token": {
-            "type": "string"
-          },
-          "ext_expires_in": {
-            "type": "integer"
-          },
-          "not_before": {
-            "type": "integer"
-          },
-          "expires_in": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "resource": {
-            "type": "string"
-          }
-        }
       }
     }
   }
