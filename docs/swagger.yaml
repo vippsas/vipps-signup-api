@@ -48,7 +48,7 @@ paths:
       parameters:
         - in: header
           name: Authorization
-          description: Token is created as 'Bearer ' followed by SignupCallbackToken. SignupCallbackToken is provided by the partner in partial signup request. Used so that the partner may authenticate the callback.
+          description: Token is an exact copy of SignupCallbackToken. SignupCallbackToken is provided by the partner in partial signup request. Used so that the partner may authenticate the callback.
           required: false
           schema:
             type: string
