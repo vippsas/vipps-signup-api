@@ -34,6 +34,7 @@ We want to create a connection between the ecommerce partner ("Partner") and the
     "form-type":"vippspanett"
 }
 ```
+
 ### Partner receives the signup link
 As response to partial signup initiation above the partner receives a signup id and a link to the signup. The partner has to forward this link to the merchant to complete the registration.
 
@@ -50,6 +51,15 @@ Merchant completes the form and the signup form is processed by Vipps. This usua
 
 ### The signup callback
 Once Vipps have completed the registration the signup callback is initiated to the partner signupCallback with the required API credentials for the merchant.
+
+## An example of a signup process
+The following is an example of how to implement a signup registration form for merchants, and how the process looks like for a merchant. The merchant enters their organization number and the url for their website in a form. When they click register, the signup is initiated.
+![Vipps signup registration](images/vipps-signup-registration.png)
+
+The merchant is then redirected to the signup link, and can then complete the registration form on vipps.no.
+![Vipps signup registration form](images/vipps-signup-registration-form.png)
+
+When the form has been completed, and signed by the right person, the partner handles the rest of the process, and informs the merchant when the implementation is ready.
 
 ## Additional developer resources
 See the Vipps Developers repository for a "getting started" guide,
