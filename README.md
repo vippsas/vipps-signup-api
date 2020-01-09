@@ -19,7 +19,16 @@ The intention with Vipps Partner Signup API is to create signup forms for Vipps 
 ### Process overview
 ![Vips Signup via Partner](images/vipps_signup_via_partner.png)
 
-### Partner initiates the signup
+### The signup form
+The partner can implement a signup registration form for merchants on the partner's website. The merchant enters their organization number and the url for their website in the form. When they click register, the signup is initiated.
+![Vipps signup registration](images/vipps-signup-registration.png)
+
+### Vipps signup form
+The merchant is then redirected to the signup link, and can complete the registration form on vipps.no. When the form has been completed, and signed by the right person, Vipps and the partner handles the rest of the process, and the partner informs the merchant when the implementation is ready.
+![Vipps signup registration form](images/vipps-signup-registration-form.png)
+
+
+## Partner initiates the signup
 We want to create a connection between the ecommerce partner ("Partner") and the merchant, as the partners have a relationship to the merchant we aim to make it easy for the merchants to complete the commercial and technical setup for Vipps. The process is initated by the partner, calling Vipps API to create a prefilled signup form.
 
 **Request**
@@ -35,7 +44,7 @@ We want to create a connection between the ecommerce partner ("Partner") and the
 }
 ```
 
-### Partner receives the signup link
+## Partner receives the signup link
 As response to partial signup initiation above the partner receives a signup id and a link to the signup. The partner has to forward this link to the merchant to complete the registration.
 
 **Response**
@@ -46,20 +55,12 @@ As response to partial signup initiation above the partner receives a signup id 
 }
 ```
 
-### The signup form, KYC and signing process
+## The signup form, KYC and signing process
 Merchant completes the form and the signup form is processed by Vipps. This usually takes 2-3 days, unless we need more information from the merchant. If necessary, the merchant answers additional questions as part of Vipps KYC process.
 
-### The signup callback
+## The signup callback
 Once Vipps have completed the registration the signup callback is initiated to the partner signupCallback with the required API credentials for the merchant.
 
-## An example of a signup process
-The following is an example of how to implement a signup registration form for merchants, and how the process looks like for a merchant. The merchant enters their organization number and the url for their website in a form. When they click register, the signup is initiated.
-![Vipps signup registration](images/vipps-signup-registration.png)
-
-The merchant is then redirected to the signup link, and can then complete the registration form on vipps.no.
-![Vipps signup registration form](images/vipps-signup-registration-form.png)
-
-When the form has been completed, and signed by the right person, the partner handles the rest of the process, and informs the merchant when the implementation is ready.
 
 ## Additional developer resources
 See the Vipps Developers repository for a "getting started" guide,
