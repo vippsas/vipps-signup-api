@@ -9,7 +9,7 @@ The intention with Vipps Partner Signup API is to create signup forms for Vipps 
 
 ### Process overview
 
-![Signup flow](images/vipps_signup_via_partner.png) 
+![Signup flow](images/vipps_signup_via_partner.png)
 
 ### Partner initiates the signup
 We want to create a connection between the ecommerce partner ("Partner") and the merchant, as the partners are having a relationship to the merchant we aim to make it easy for the merchants to complete the commercial and technical setup for Vipps. The process is initated by the partner, calling Vipps API to create a prefilled signup form.
@@ -50,3 +50,12 @@ Once Vipps have completed the registration the signup callback is initiated to t
 See the Vipps Developers repository for a "getting started" guide,
 information about product activation, contact information,
 contribution guidelines, etc: https://github.com/vippsas/vipps-developers
+
+## Questions?
+
+We're always happy to help with code or other questions you might have!
+Please create an [issue](https://github.com/vippsas/vipps-sdignup-api/issues),
+a [pull request](https://github.com/vippsas/vipps-signup-api/pulls),
+or [contact us](https://github.com/vippsas/vipps-developers/blob/master/contact.md).
+
+Sign up for our [Technical newsletter for developers](https://github.com/vippsas/vipps-developers/tree/master/newsletters).
