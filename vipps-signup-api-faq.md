@@ -1,7 +1,8 @@
 ## Frequently Asked Questions for the Signup API
 
-Document version 3.0.0.
+Document version 3.1.0.
 
+- [Who do I contact if I have problems?](#who-do--i-contact-if-i-have-problems)
 - [What is my partnerId?](#what-is-my-partnerid)
 - [What is my subscriptionPackageId?](#what-is-my-subscriptionpackageid)
 - [Will Vipps send the signup link to the merchant?](#will-vipps-send-the-signup-link-to-the-merchant)
@@ -12,15 +13,21 @@ Document version 3.0.0.
 - [Can Vipps re-send the callback?](#can-vipps-re-send-the-callback)
 - [Questions?](#questions)
 
+## Who do I contact if I have problems?
+
+That depends what you need help with:
+* Your partnership with Vipps: partnerbestilling@vipps.no
+* The Signup API: See [contact information here](https://github.com/vippsas/vipps-developers/blob/master/contact.md)
+
 ## What is my partnerId?
 
-The partnerId is used to identify the partner. Ask your contact in Vipps to
-provide you with your partnerId.
+The `partnerId` is used to identify the partner.
+Ask your contact in Vipps to provide you with your `partnerId`.
 
 ## What is my subscriptionPackageId?
 
-The subscriptionPackageId is used to define which price the merchant will have.
-Ask your contact in Vipps to provide you with the correct subscriptionPackageIds.
+The `subscriptionPackageId` is used to define the merchant's price package.
+Ask your contact in Vipps to provide you with the correct `subscriptionPackageIds`.
 
 ## Will Vipps send the signup link to the merchant?
 
@@ -36,31 +43,35 @@ The partner can provide the URL to the partner's website.
 
 ## What happens if a partner sends multiple signup URLs for the same merchant?
 
-If we receive multiple signups for the same organization number, we will
+If we receive multiple signups for the same organization number, Vipps will
 attempt to use the latest one, but we _strongly_ recommend to only send one.
 
 ## When will I receive the callback from Vipps?
 
 The callback is sent after the merchant has:
-* Completed the signup
-* Signed the
+* Completed the signup form
+* Signed the signup form
 
 _and_ Vipps has:
 * Completed the KYC process
 * Completed the registration process
 
-This usually takes a couple of days, but sometimes it will take longer if
-Vipps needs to contact the merchant for more information to complete the
-registration.
+The last two steps usually takes a couple of days, but sometimes it will take
+longer if Vipps needs to contact the merchant for more information to complete
+the registration.
 
-Please contact the merchant first, and confirm that they have
-completed the signup form and signed it.
+If there is a delay, it is almost always due to delays at the merchant side.
+Please contact the merchant first, and confirm that they have completed the
+signup form, and that the right person has signed it.
+
+Follow-up questions from Vipps sometimes end up in the merchant's spam
+folder - please have the merchant check there too.
 
 ## Can Vipps re-send the callback?
 
-It is possible, but a manual and rather tedious process. Before requesting this,
-please ask the merchant to retrieve the API keys from portal.vipps.no
-as described here:
+It is technically possible, but a manual and rather tedious process. Before
+requesting this, please ask the merchant to retrieve the API keys from
+portal.vipps.no as described here:
 [Getting the API keys](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#getting-the-api-keys).
 
 ## Questions?
