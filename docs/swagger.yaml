@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: '1.0'
+  version: '1.1.1'
   title: Vipps signup API
   description: |+
     Vipps Signup API enables a partner to initiate Vipps onboarding process on behalf of a merchant. The merchant needs to complete Vipps signup form to sign the merchant agreement with Vipps. After the signup form has been processed, Vipps will send the API keys to the defined callback endpoint. In order to complete the integration there is a need to:
@@ -102,15 +102,15 @@ components:
           example: '2'
         signupCallbackUrl:
           type: string
-          description: Url that the callback will be sent to
+          description: URL that the callback will be sent to
           example: 'https://test.vipps.no/callback'
         signupCallbackToken:
           type: string
-          description: Token to authenticate the callback
+          description: Token to authenticate the callback to `signupCallbackUrl`
           example: c00be7de-64c4-11e8-adc0-fa7ae01bbebc
         merchantWebsiteUrl:
           type: string
-          description: Merchant website
+          description: Merchant website URL
           example: 'https://www.vipps.no/'
         form-type:
           type: string
@@ -147,7 +147,7 @@ components:
         merchant-name:
           type: string
           description: Merchant Name
-          example: Vipps
+          example: Merchant AS
         createdTime:
           type: string
           description: createdTime
