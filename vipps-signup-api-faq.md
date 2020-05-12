@@ -15,7 +15,7 @@ Document version 3.1.0.
 
 ## Who do I contact if I have problems?
 
-That depends what you need help with:
+That depends on what you need help with:
 * Your partnership with Vipps: partnerbestilling@vipps.no
 * The Signup API: See [contact information here](https://github.com/vippsas/vipps-developers/blob/master/contact.md)
 
