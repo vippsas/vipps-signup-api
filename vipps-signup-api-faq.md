@@ -1,10 +1,11 @@
 ## Frequently Asked Questions for the Signup API
 
-Document version 3.1.0.
+Document version 3.2.0.
 
 - [Who do I contact if I have problems?](#who-do--i-contact-if-i-have-problems)
 - [What is my partnerId?](#what-is-my-partnerid)
 - [What is my subscriptionPackageId?](#what-is-my-subscriptionpackageid)
+- [How can I get an account in the test environment?](#how-can-i-get-an-account-in-the-test-environment)
 - [Will Vipps send the signup link to the merchant?](#will-vipps-send-the-signup-link-to-the-merchant)
 - [For how long is the signup URL valid?](#for-how-long-is-the-signup-url-valid)
 - [What if the merchant does not have a website?](#what-if-the-merchant-does-not-have-a-website)
@@ -28,6 +29,13 @@ Ask your contact in Vipps to provide you with your `partnerId`.
 
 The `subscriptionPackageId` is used to define the merchant's price package.
 Ask your contact in Vipps to provide you with the correct `subscriptionPackageIds`.
+
+# How can I get an account in the test environment?
+
+The Signup API requires more backend functionality than we have available in
+the test environment. For partners that need to test the Signup API
+we recommend that the partner "test in prod"  and signs up itself in the
+production environment.
 
 ## Will Vipps send the signup link to the merchant?
 
