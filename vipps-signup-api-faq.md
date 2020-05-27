@@ -30,7 +30,7 @@ Ask your contact in Vipps to provide you with your `partnerId`.
 The `subscriptionPackageId` is used to define the merchant's price package.
 Ask your contact in Vipps to provide you with the correct `subscriptionPackageIds`.
 
-# How can I get an account in the test environment?
+## How can I get an account in the test environment?
 
 The Signup API requires more backend functionality than we have available in
 the test environment. For partners that need to test the Signup API
