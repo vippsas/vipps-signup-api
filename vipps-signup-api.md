@@ -4,7 +4,7 @@ This repository contains developer resources for the Vipps Partner Signup API.
 
 API Documentation: https://vippsas.github.io/vipps-signup-api/
 
-Document version 2.0.0.
+Document version 2.0.1.
 
 ## About the Vipps Partner Signup API
 
@@ -77,6 +77,8 @@ registration.
 ```
 
 Please note that the link is valid for 30 days only.
+If the signup link has expired, it will give an error: "Agreement not found".
+The fix is to simply initiate a new signup.
 
 ### The signup form, KYC and signing process
 
