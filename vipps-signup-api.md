@@ -4,7 +4,7 @@ This repository contains developer resources for the Vipps Partner Signup API.
 
 API Documentation: https://vippsas.github.io/vipps-signup-api/
 
-Document version 2.0.1.
+Document version 2.0.2.
 
 ## About the Vipps Partner Signup API
 
@@ -90,8 +90,10 @@ part of the Vipps KYC process.
 Once Vipps have completed the registration the signup callback is initiated to
 the partner `signupCallbackUrl` with the required API credentials for the merchant.
 
+Vipps expects a `HTTP 200 OK` response for the callback.
+
 If the partner is unable to receive the callback, or the callback fails for
-some reason, the merchant can log in with BankID on poertal.vipps.no and
+some reason, the merchant can log in with BankID on portal.vipps.no and
 retrieve the API keys as described in
 [Getting started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md).
 
