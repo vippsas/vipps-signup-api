@@ -1,4 +1,5 @@
-# A simple example for the Vipps Signup API
+# A simple example for the Vipps Signup API:
+# Partner signs up a new merchants, who later must sign using the signing URL.
 # https://github.com/vippsas/vipps-signup-api
 
 import requests
@@ -12,7 +13,7 @@ data = {
   "orgnumber": "918713867",
   "partnerId": "265536",
   "subscriptionPackageId": "2",
-  "signupCallbackUrl": "https://example.com/signup-callback",
+  "signupCallbackUrl": "https://example.com/vipps-signup-api/vipps-signup-callback",
   "signupCallbackToken": "c00be7de-64c4-11e8-adc0-fa7ae01bbebc",
   "merchantWebsiteUrl": "https://www.vipps.no/",
   "form-type": "vippspanett"
