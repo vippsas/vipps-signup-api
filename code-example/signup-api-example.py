@@ -19,7 +19,7 @@ data = {
 }
 
 # Make the POST request
-response = requests.post(url, data)
+response = requests.post(url, json=data)
 
 # Print the response and content
 print(response)
