@@ -3,6 +3,7 @@
 This repository contains developer resources for the Vipps Partner Signup API:
 
 * [API guide](https://github.com/vippsas/vipps-signup-api/blob/master/vipps-signup-api.md)
+* [Code example](code-example/)
 * [Frequently Asked Questions](vipps-signup-api-faq.md)
 
 You can peruse the API reference documentation here: https://vippsas.github.io/vipps-signup-api/
