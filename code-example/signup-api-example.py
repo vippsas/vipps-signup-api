@@ -21,13 +21,10 @@ data = {
 # Make the POST request
 response = requests.post(url, json=data)
 
-# Print the response and content
-print(response)
-print(response.content)
-
 response_dict = json.loads(response.text)
 for i in response_dict:
-    print("key: ", i, "val: ", response_dict[i])
+    print(i, ": ", response_dict[i])
 
+# Next: The merchant must now sign the URL.
 # Vipps will make a callback when the merchant has signed the form
 # provided on the URL in the response.
