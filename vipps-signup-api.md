@@ -77,8 +77,8 @@ registration.
 ```
 
 Please note that the link is valid for 30 days only.
-If the signup link has expired, it will give an error: "Agreement not found".
-The fix is to simply initiate a new signup.
+If the signup link has expired, it will get an message telling them to contact the partner.
+The fix is for the partner to simply initiate a new signup.
 
 ### The signup form, KYC and signing process
 
@@ -91,7 +91,7 @@ Once Vipps have completed the registration the signup callback is initiated to
 the partner `signupCallbackUrl` with the required API credentials for the merchant.
 
 If the partner is unable to receive the callback, or the callback fails for
-some reason, the merchant can log in with BankID on poertal.vipps.no and
+some reason, the merchant can log in with BankID on portal.vipps.no and
 retrieve the API keys as described in
 [Getting started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md).
 
