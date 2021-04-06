@@ -4,7 +4,7 @@ This repository contains developer resources for the Vipps Partner Signup API.
 
 API Documentation: https://vippsas.github.io/vipps-signup-api/
 
-Document version 2.0.1.
+Document version 2.0.2.
 
 ## About the Vipps Partner Signup API
 
@@ -17,7 +17,11 @@ the Signup callback functionality.
 
 **Please note:** The Signup API has some dependencies that are not in place
 in our test environment. Because of this we recommend to "test in prod" by
-signing up yourself.
+signing up yourself, with your own organization number: Verify that you are
+able to "pre-fill" an application nand get the URL for it, ready for completion
+and signing. We recommend _not_ to complete the whole process by signing the
+order with BankID, as you then "use up" your orgsnization number, and also
+initiate the whole process at Vipps.
 
 ### Process overview
 
