@@ -11,8 +11,8 @@ Document version 3.0.0.
 * [About the Vipps Partner Signup API](#about-the-vipps-partner-signup-api)
 * [Process overview](#process-overview)
 * [Signup forms](#signup-forms)
-* [Signup form provided by the partner](#signup-form-provided-by-the-partner)
-* [Signup form provided by the Vipps](#signup-form-provided-by-the-vipps)
+  - [Signup form provided by the partner](#signup-form-provided-by-the-partner)
+  - [Signup form provided by Vipps](#signup-form-provided-by-vipps)
 * [Additional developer resources](#additional-developer-resources)
 * [Questions?](#questions-)
 
@@ -38,7 +38,7 @@ initiate the whole process at Vipps.
 ![Signup flow](images/vipps_signup_via_partner.png)
 
 1. The partner sends the merchant details to Vipps with
-   [`POST:/v1/partial/signup](https://vippsas.github.io/vipps-signup-api/#/Signup/partialSignup)
+   [`POST:/v1/partial/signup`](https://vippsas.github.io/vipps-signup-api/#/Signup/partialSignup)
    ```
    {
      "orgnumber": "996348954",
@@ -61,7 +61,7 @@ initiate the whole process at Vipps.
    The signup link is valid for 30 days. After that it will show an error.
 4. When the merchant has signed, the partner will receive a callback from
    Vipps with the merchant's details:
-   [`POST:/signupcallbackURL](https://vippsas.github.io/vipps-signup-api/#/Signup%20Callback/callback)
+   [`POST:/signupcallbackURL`](https://vippsas.github.io/vipps-signup-api/#/Signup%20Callback/callback)
    ```
    {
      "signup-id": "81b83246-5c19-7b94-875b-ea6d1114f099",
@@ -90,7 +90,7 @@ initiate the whole process at Vipps.
 
 ## Signup forms
 
-## Signup form provided by the partner
+### Signup form provided by the partner
 
 The partner can implement a signup registration form for merchants on the
 partner's website. The merchant enters their organization number and the URL
@@ -98,7 +98,7 @@ for their website in the form. When they click register, the signup is initiated
 
 ![Vipps signup registration](images/vipps-signup-registration.png)
 
-## Signup form provided by the Vipps
+### Signup form provided by Vipps
 
 The standard Vipps signup functionality on vipops.no can be used.
 The merchant is then redirected to the signup link, and can complete the
