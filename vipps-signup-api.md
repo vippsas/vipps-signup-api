@@ -8,22 +8,23 @@ Document version 3.0.0.
 
 ## Table of contents
 
+* [Table of contents](#table-of-contents)
 * [About the Vipps Partner Signup API](#about-the-vipps-partner-signup-api)
 * [Process overview](#process-overview)
+  + [Flow diagram](#flow-diagram)
+  + [API call details](#api-call-details)
 * [Signup forms](#signup-forms)
-  - [Signup form provided by the partner](#signup-form-provided-by-the-partner)
-  - [Signup form provided by Vipps](#signup-form-provided-by-vipps)
+  + [Signup form provided by the partner](#signup-form-provided-by-the-partner)
+  + [Signup form provided by Vipps](#signup-form-provided-by-vipps)
 * [Additional developer resources](#additional-developer-resources)
 * [Questions?](#questions-)
 
 ## About the Vipps Partner Signup API
 
 The Vipps Partner Signup API lets partners create signup forms for Vipps
-eCommerce for their merchants. The partners can make the process simpler for
-the merchant by pre-filling the form with certain data.
-
-We are also enabling the partner to automate the reception of API keys with
-the Signup callback functionality.
+eCommerce for their merchants. The partner pre-fills the form with the
+merchant's data, and automatically receive the merchant's details when the
+merchant has signed with BankID.
 
 **Please note:** The Signup API has some dependencies that are not in place
 in our test environment. Because of this we recommend to "test in prod" by
@@ -35,7 +36,13 @@ initiate the whole process at Vipps.
 
 ## Process overview
 
+### Flow diagram
+
+Norwegian only, sorry.
+
 ![Signup flow](images/vipps_signup_via_partner.png)
+
+### API call details
 
 1. The partner sends the merchant details to Vipps with
    [`POST:/v1/partial/signup`](https://vippsas.github.io/vipps-signup-api/#/Signup/partialSignup)
