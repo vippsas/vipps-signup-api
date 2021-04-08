@@ -4,7 +4,18 @@ This repository contains developer resources for the Vipps Partner Signup API.
 
 API Documentation: https://vippsas.github.io/vipps-signup-api/
 
-Document version 2.0.2.
+Document version 2.1.0.
+
+## Table of contents
+
+* [About the Vipps Partner Signup API](#about-the-vipps-partner-signup-api)
+* [Process overview](#process-overview)
+* [The signup form](#the-signup-form)
+* [Vipps signup form](#vipps-signup-form)
+* [The signup form, KYC and signing process](#the-signup-form--kyc-and-signing-process)
+* [The signup callback](#the-signup-callback)
+* [Additional developer resources](#additional-developer-resources)
+* [Questions?](#questions-)
 
 ## About the Vipps Partner Signup API
 
@@ -18,16 +29,69 @@ the Signup callback functionality.
 **Please note:** The Signup API has some dependencies that are not in place
 in our test environment. Because of this we recommend to "test in prod" by
 signing up yourself, with your own organization number: Verify that you are
-able to "pre-fill" an application nand get the URL for it, ready for completion
+able to "pre-fill" an application and get the URL for it, ready for completion
 and signing. We recommend _not_ to complete the whole process by signing the
-order with BankID, as you then "use up" your orgsnization number, and also
+order with BankID, as you then "use up" your organization number, and also
 initiate the whole process at Vipps.
 
-### Process overview
+## Process overview
 
 ![Signup flow](images/vipps_signup_via_partner.png)
 
-#### The signup form
+1. The partner sends the merchant details to Vipps with
+   [`POST:/v1/partial/signup](https://vippsas.github.io/vipps-signup-api/#/Signup/partialSignup)
+   ```
+   {
+     "orgnumber": "996348954",
+     "partnerId": "265536",
+     "subscriptionPackageId": "2",
+     "signupCallbackUrl": "https://www.example.com/vipps/callback",
+     "signupCallbackToken": "c00be7de-64c4-11e8-adc0-fa7ae01bbebc",
+     "merchantWebsiteUrl": "https://www.example.com/",
+     "form-type": "vippspanett"
+   }
+   ```
+2. The response for the above API call contains an URL:
+   ```
+   {
+     "signup-id": "81b83246-5c19-7b94-875b-ea6d1114f099",
+     "vippsURL": "https://vippsbedrift.no/signup/vippspanett/?r=81b83246-5c19-7b94-875b-ea6d1114f099"
+   }   
+   ```
+3. The merchant must open the URL and sign the Vipps order with BankID.
+   The signup link is valid for 30 days. After that it will show an error.
+4. When the merchant has signed, the partner will receive a callback from
+   Vipps with the merchant's details:
+   [`POST:/signupcallbackURL](https://vippsas.github.io/vipps-signup-api/#/Signup%20Callback/callback)
+   ```
+   {
+     "signup-id": "81b83246-5c19-7b94-875b-ea6d1114f099",
+     "orgnumber": "996348954",
+     "merchant-name": "Merchant AS",
+     "createdTime": "00:00:00",
+     "merchantSerialNumber": "123456",
+     "client_Id": "51358942-08c8-4d50-99f4-a9aa970b5f5b",
+     "client_Secret": "verysecret123",
+     "subscriptionKeys": [
+       {
+         "product": "Access",
+         "ocp-apim-subscription-key": "de897dbb-0cd3-4445-b003-ac8214ac4638"
+       },
+       {
+         "product": "Ecommerce",
+         "ocp-apim-subscription-key": "de897dbb-0cd3-4445-b003-ac8214ac4638"
+       }
+     ]
+   }   
+   ```
+   **Please note:** The two `ocp-apim-subscription-key` are identical, for
+   backwards compatibility. See details/background in
+   [Getting started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#api-products).
+5. The partner informs the merchant when everything is ready.
+
+## Signup forms
+
+## Signup form provided by the partner
 
 The partner can implement a signup registration form for merchants on the
 partner's website. The merchant enters their organization number and the URL
@@ -35,69 +99,13 @@ for their website in the form. When they click register, the signup is initiated
 
 ![Vipps signup registration](images/vipps-signup-registration.png)
 
-#### Vipps signup form
+## Signup form provided by the Vipps
 
+The standard Vipps signup functionality on vipops.no can be used.
 The merchant is then redirected to the signup link, and can complete the
 registration form on vipps.no.
 
-When the form has been completed, and signed by the right person, Vipps and the
-partner handles the rest of the process, and the partner informs the merchant
-when the implementation is ready.
-
 ![Vipps signup registration form](images/vipps-signup-registration-form.png)
-
-### Partner initiates the signup
-
-We want to create a connection between the ecommerce partner ("Partner") and
-the merchant, as the partners are having a relationship to the merchant we aim
-to make it easy for the merchants to complete the commercial and technical
-setup for Vipps. The process is initiated by the partner, calling Vipps API to
-create a pre-filled signup form.
-
-**Request**
-```html
-{
-    "orgnumber" : "819226032",
-    "partnerId":"1234",
-    "subscriptionPackageId":"1234",
-    "merchantWebsiteUrl": "https://www.vipps.no",
-    "signupCallbackToken":"",
-    "signupCallbackUrl":"https://upload.credentials.to.partner.url",
-    "form-type":"vippspanett"
-}
-```
-### Partner receives the signup link
-
-As response to partial signup initiation above the partner receives an signup
-id and a link to the signup which is forwarded to the merchant to complete the
-registration.
-
-**Response**
-```html
-{
-    "signup-id": "4188dea2-00d0-488a-88b7-b39b186151c0",
-    "vippsURL": "https://vippsbedrift.no/signup/vippspanett/?r=4188dea2-00d0-488a-88b7-b39b186151c0"
-}
-```
-
-Please note that the link is valid for 30 days only.
-If the signup link has expired, it will get an message telling them to contact the partner.
-The fix is for the partner to simply initiate a new signup.
-
-### The signup form, KYC and signing process
-
-Merchant completes the form and if necessary answers additional questions as
-part of the Vipps KYC process.  
-
-### The signup callback
-
-Once Vipps have completed the registration the signup callback is initiated to
-the partner `signupCallbackUrl` with the required API credentials for the merchant.
-
-If the partner is unable to receive the callback, or the callback fails for
-some reason, the merchant can log in with BankID on portal.vipps.no and
-retrieve the API keys as described in
-[Getting started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md).
 
 ## Additional developer resources
 
