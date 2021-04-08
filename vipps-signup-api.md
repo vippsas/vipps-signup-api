@@ -4,16 +4,15 @@ This repository contains developer resources for the Vipps Partner Signup API.
 
 API Documentation: https://vippsas.github.io/vipps-signup-api/
 
-Document version 2.1.0.
+Document version 3.0.0.
 
 ## Table of contents
 
 * [About the Vipps Partner Signup API](#about-the-vipps-partner-signup-api)
 * [Process overview](#process-overview)
-* [The signup form](#the-signup-form)
-* [Vipps signup form](#vipps-signup-form)
-* [The signup form, KYC and signing process](#the-signup-form--kyc-and-signing-process)
-* [The signup callback](#the-signup-callback)
+* [Signup forms](#signup-forms)
+* [Signup form provided by the partner](#signup-form-provided-by-the-partner)
+* [Signup form provided by the Vipps](#signup-form-provided-by-the-vipps)
 * [Additional developer resources](#additional-developer-resources)
 * [Questions?](#questions-)
 
