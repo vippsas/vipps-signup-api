@@ -4,7 +4,7 @@ This repository contains developer resources for the Vipps Partner Signup API.
 
 API Documentation: https://vippsas.github.io/vipps-signup-api/
 
-Document version 3.0.0.
+Document version 3.0.1.
 
 ## Table of contents
 
@@ -94,6 +94,9 @@ Norwegian only, sorry.
    backwards compatibility. See details/background in
    [Getting started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#api-products).
 5. The partner informs the merchant when everything is ready.
+
+See the eCom API documentation for some tips on testing callbacks (it's a different API, but the overall concept is the same):
+[How to test your own callbacks](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#how-to-test-your-own-callbacks).
 
 ## Signup forms
 
