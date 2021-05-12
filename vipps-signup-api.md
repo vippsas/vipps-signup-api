@@ -20,10 +20,17 @@ Document version 3.0.2.
 
 ## About the Vipps Partner Signup API
 
-The Vipps Partner Signup API lets partners create signup forms for Vipps
-eCommerce for their merchants. The partner pre-fills the form with the
-merchant's data, and automatically receive the merchant's details when the
-merchant has signed with BankID.
+The Vipps Partner Signup API lets partners create pre-filled signup forms for Vipps
+eCommerce for their merchants.
+
+The partner calls the API to pre-fill the signup form with the merchant's data,
+and automatically receive the merchant's details when the merchant has signed
+the form with BankID.
+
+It is a _very_ simple API. We are aware that there is a need for more functionality,
+and we hope to extend the API. Subscribe to the
+[Technical newsletter for developers](https://github.com/vippsas/vipps-developers/tree/master/newsletters)
+for updates.
 
 To become a partner and to get the `partnerId`, `subscriptionPackageId`, etc: See
 [Become a partner](https://vipps.no/developer/bli-partner/).
