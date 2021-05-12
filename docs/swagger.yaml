@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: '1.1.2'
+  version: '1.1.3'
   title: Vipps signup API
   description: |+
     Vipps Signup API enables a partner to initiate Vipps onboarding process on behalf of a merchant. The merchant needs to complete Vipps signup form to sign the merchant agreement with Vipps. After the signup form has been processed, Vipps will send the API keys to the defined callback endpoint. In order to complete the integration there is a need to:
@@ -94,27 +94,27 @@ components:
           example: '996348954'
         partnerId:
           type: string
-          description: PartnerID to identify the partner
+          description: PartnerID to identify the partner. Provided by Vipps when the partnership is established.
           example: '265536'
         subscriptionPackageId:
           type: string
-          description: The price package that will be used for this merchant
+          description: The id of the partner's price package that will be used for this merchant.
           example: '2'
         signupCallbackUrl:
           type: string
-          description: URL that the callback will be sent to
+          description: The URL that the callback will be sent to.
           example: 'https://example.com/vipps/callback'
         signupCallbackToken:
           type: string
-          description: Token to authenticate the callback to `signupCallbackUrl`
+          description: The token Vipps will use in the HTTP header to authenticate the callback to the partner's `signupCallbackUrl`.
           example: c00be7de-64c4-11e8-adc0-fa7ae01bbebc
         merchantWebsiteUrl:
           type: string
-          description: Merchant website URL
+          description: The merchant website URL.
           example: 'https://www.example.com/'
         form-type:
           type: string
-          description: The type of the form
+          description: The type of the form. Only 'vippspanett' is supported.
           example: vippspanett
     partialSignupResponse:
       type: object
@@ -124,11 +124,11 @@ components:
       properties:
         signup-id:
           type: string
-          description: Unique ID per signup request
+          description: The unique id per signup request.
           example: 81b83246-5c19-7b94-875b-ea6d1114f099
         vippsURL:
           type: string
-          description: Redirect URL to complete the sign-up
+          description: The redirect URL to complete the signup.
           example: 'https://vippsbedrift.no/signup/vippspanett/?r=81b83246-5c19-7b94-875b-ea6d1114f099'
     callbackTriggerResponse:
       type: object
@@ -138,15 +138,15 @@ components:
       properties:
         signup-id:
           type: string
-          description: Unique ID per signup request
+          description: The unique ID per signup request.
           example: 81b83246-5c19-7b94-875b-ea6d1114f099
         orgnumber:
           type: string
-          description: Norwegian Organization Number
+          description: The merchant's Norwegian organization number.
           example: '996348954'
         merchant-name:
           type: string
-          description: Merchant Name
+          description: The merchant's name.
           example: Merchant AS
         createdTime:
           type: string
@@ -155,7 +155,7 @@ components:
         merchantSerialNumber:
           type: string
           format: string
-          description: merchantSerialNumber
+          description: The merchant's merchant serial number (MSN).
           example: '123456'
         client_Id:
           type: string
