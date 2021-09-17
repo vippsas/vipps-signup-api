@@ -122,7 +122,7 @@ for their website in the form. When they click register, the signup is initiated
 
 ### Signup form provided by Vipps
 
-The standard Vipps signup functionality on vipops.no can be used.
+The standard Vipps signup functionality on vipps.no can be used.
 The merchant is then redirected to the signup link, and can complete the
 registration form on vipps.no.
 
