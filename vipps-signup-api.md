@@ -1,10 +1,19 @@
 # Vipps Partner Signup API
 
+**IMPORTANT:** This API is being phased out. Do _*NOT*_ integrate with this API now.
+See
+[the partner information](https://github.com/vippsas/vipps-partner)
+for more, especially
+[How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants).
+Please contact your partner contact in Vipps for more information.
+
+----
+
 This repository contains developer resources for the Vipps Partner Signup API.
 
 API Documentation: https://vippsas.github.io/vipps-signup-api/
 
-Document version 3.0.2.
+Document version 3.1.0.
 
 ## Table of contents
 
