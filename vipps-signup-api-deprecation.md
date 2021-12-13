@@ -1,4 +1,4 @@
-# Deprecation of the Vipps Signup API APIs
+# Deprecation of the Vipps Signup API
 
 This is the message we sent to communicate the deprecation of the Vipps Signup API.
 
