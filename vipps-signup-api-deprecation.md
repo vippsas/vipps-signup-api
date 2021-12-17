@@ -2,7 +2,7 @@
 
 This is the message we sent to communicate the deprecation of the Vipps Signup API.
 
-Document version 1.0.0.
+Document version 1.0.1.
 
 <br/>
 <br/>
@@ -52,11 +52,9 @@ and there is no longer a need to use the Vipps Signup API.
    merchants are represented, and we can not continue to maintain both the
    old Signup API and the current signup on portal.vipps.no.
 
-And, of course: We are working on a new and better solution: The
-[Vipps Partner API PoC](#vipps-partner-api-poc).
-
 See:
 * [Why is the Signup API being phased out?](https://github.com/vippsas/vipps-partner#why-is-the-signup-api-being-phased-out)
+* [When will there be a replacement for the Signup API?](https://github.com/vippsas/vipps-partner#when-will-there-be-a-replacement-for-the-signup-api)
 * [How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants)
 * [Partner keys](https://github.com/vippsas/vipps-partner#partner-keys)
 * [Vipps Partner API PoC](https://github.com/vippsas/vipps-partner#vipps-partner-api-poc)
