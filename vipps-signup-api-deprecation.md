@@ -4,9 +4,7 @@ This is the message we sent to communicate the deprecation of the Vipps Signup A
 
 Document version 1.0.1.
 
-<br/>
-<br/>
-<br/>
+------
 
 Hi
 
